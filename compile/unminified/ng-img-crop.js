@@ -2,10 +2,10 @@
  * ngImgCropExtended v0.6.2
  * http://crackerakiua.github.io/ngImgCropFullExtended/
  *
- * Copyright (c) 2016 Alex Kaul
+ * Copyright (c) 2017 Alex Kaul
  * License: MIT
  *
- * Generated at Thursday, October 20th, 2016, 3:43:09 PM
+ * Generated at Monday, April 10th, 2017, 4:20:01 PM
  */
 (function() {
 var crop = angular.module('ngImgCrop', []);
@@ -3017,6 +3017,17 @@ crop.factory('cropHost', ['$document', '$q', 'cropAreaCircle', 'cropAreaSquare',
             theArea.setSize(size);
         };
 
+        this.getAreaDetails = function(){
+            return {
+                x: theArea.getX(),
+                y: theArea.getY(),
+                size: theArea.getSize(),
+                image: { width: theArea.getImage().width, height: theArea.getImage().height},
+                canvas: { width: ctx.canvas.width, height: ctx.canvas.height}
+
+            }
+        }
+
         /* Life Cycle begins */
 
         // Init Context var
@@ -3096,6 +3107,7 @@ crop.directive('imgCrop', ['$timeout', 'cropHost', 'cropPubSub', function ($time
             areaCoords: '=?',
             areaType: '@',
             areaMinSize: '=?',
+            areaDetails: '=',
             areaInitSize: '=?',
             areaInitCoords: '=?',
             areaInitIsRelativeToImage: '=?', /* Boolean: If true the areaInitCoords and areaInitSize is scaled according to canvas size. */
@@ -3301,6 +3313,7 @@ crop.directive('imgCrop', ['$timeout', 'cropHost', 'cropPubSub', function ($time
                 .on('area-move-end area-resize-end image-updated', fnSafeApply(function (scope) {
                     updateResultImage(scope);
                     updateCropject(scope);
+                    scope.areaDetails = cropHost.getAreaDetails();
                 }));
 
             // Sync CropHost with Directive's options
