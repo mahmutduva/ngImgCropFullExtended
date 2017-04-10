@@ -1,5 +1,5 @@
 {
-	"name": "ng-img-crop-full-extended",
+	"name": "ngImgCropFullExtended",
 	"prettyName": "ngImgCropFullExtended",
 	"authors": [{
 		"name": "Alex Kaul",
@@ -24,7 +24,7 @@
 	}],
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/CrackerakiUA/ngImgCropExtended"
+		"url": "https://github.com/mahmutduva/ngImgCropFullExtended"
 	},
 	"description": "Image crop directive for AngularJS, square, circle and rectangle areas. Working aspect.",
 	"main": [
@@ -39,7 +39,7 @@
 		"cropper"
 	],
 	"license": "MIT",
-	"homepage": "https://github.com/CrackerakiUA/ngImgCropExtended/",
+	"homepage": "https://github.com/mahmutduva/ngImgCropFullExtended",
 	"ignore": [
 		"node_modules",
 		"bower_components",
