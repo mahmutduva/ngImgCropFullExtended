@@ -5,7 +5,7 @@
  * Copyright (c) 2017 Alex Kaul
  * License: MIT
  *
- * Generated at Tuesday, April 11th, 2017, 9:31:20 AM
+ * Generated at Tuesday, April 11th, 2017, 9:49:14 AM
  */
 (function() {
 var crop = angular.module('ngImgCrop', []);
@@ -3019,8 +3019,8 @@ crop.factory('cropHost', ['$document', '$q', 'cropAreaCircle', 'cropAreaSquare',
 
         this.getAreaDetails = function(){
             return {
-                x: theArea.getX(),
-                y: theArea.getY(),
+                x: theArea.getSize().x,
+                y: theArea.getSize().y,
                 size: theArea.getSize(),
                 image: { width: theArea.getImage().width, height: theArea.getImage().height},
                 canvas: { width: ctx.canvas.width, height: ctx.canvas.height}

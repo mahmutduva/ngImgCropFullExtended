@@ -855,8 +855,8 @@ crop.factory('cropHost', ['$document', '$q', 'cropAreaCircle', 'cropAreaSquare',
 
         this.getAreaDetails = function(){
             return {
-                x: theArea.getX(),
-                y: theArea.getY(),
+                x: theArea.getSize().x,
+                y: theArea.getSize().y,
                 size: theArea.getSize(),
                 image: { width: theArea.getImage().width, height: theArea.getImage().height},
                 canvas: { width: ctx.canvas.width, height: ctx.canvas.height}
