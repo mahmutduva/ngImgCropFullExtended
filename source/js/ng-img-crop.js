@@ -23,7 +23,7 @@ crop.directive('imgCrop', ['$timeout', 'cropHost', 'cropPubSub', function ($time
             areaCoords: '=?',
             areaType: '@',
             areaMinSize: '=?',
-            areaDetails: '=?',
+            areaDetails: '=',
             areaInitSize: '=?',
             areaInitCoords: '=?',
             areaInitIsRelativeToImage: '=?', /* Boolean: If true the areaInitCoords and areaInitSize is scaled according to canvas size. */
@@ -44,11 +44,10 @@ crop.directive('imgCrop', ['$timeout', 'cropHost', 'cropPubSub', function ($time
             paletteColor: '=?',
             paletteColorLength: '=?',
 
-            onChange: '&?',
-            onLoadBegin: '&?',
-            onLoadDone: '&?',
-            onLoadError: '&?',
-            onImageReady: '&?'
+            onChange: '&',
+            onLoadBegin: '&',
+            onLoadDone: '&',
+            onLoadError: '&'
         },
         template: '<canvas></canvas>',
         controller: ['$scope', function ($scope) {
@@ -65,14 +64,6 @@ crop.directive('imgCrop', ['$timeout', 'cropHost', 'cropPubSub', function ($time
             } else {
                 scope.liveView = {block: false};
             }
-
-            var NOP = function() {
-            };
-            scope.onChange = scope.onChange || NOP;
-            scope.onLoadBegin = scope.onLoadBegin || NOP;
-            scope.onLoadDone = scope.onLoadDone || NOP;
-            scope.onLoadError = scope.onLoadError || NOP;
-
 
             // Init Events Manager
             var events = scope.events;
@@ -223,11 +214,6 @@ crop.directive('imgCrop', ['$timeout', 'cropHost', 'cropPubSub', function ($time
                     });
                     updateCropject(scope);
                     scope.onLoadDone({});
-                }))
-                .on('image-ready', fnSafeApply(function (scope) {
-                  if (scope.onImageReady({})) {
-                    cropHost.redraw();
-                  }
                 }))
                 .on('load-error', fnSafeApply(function (scope) {
                     scope.onLoadError({});
