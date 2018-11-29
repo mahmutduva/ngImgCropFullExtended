@@ -3107,7 +3107,7 @@ crop.directive('imgCrop', ['$timeout', 'cropHost', 'cropPubSub', function ($time
             areaCoords: '=?',
             areaType: '@',
             areaMinSize: '=?',
-            areaDetails: '=',
+            areaDetails: '=?',
             areaInitSize: '=?',
             areaInitCoords: '=?',
             areaInitIsRelativeToImage: '=?', /* Boolean: If true the areaInitCoords and areaInitSize is scaled according to canvas size. */
