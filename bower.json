@@ -28,8 +28,8 @@
 	},
 	"description": "Image crop directive for AngularJS, square, circle and rectangle areas. Working aspect.",
 	"main": [
-		"compile/minified/ng-img-crop.js",
-		"compile/minified/ng-img-crop.css"
+		"compile/unminified/ng-img-crop.js",
+		"compile/unminified/ng-img-crop.css"
 	],
 	"keywords": [
 		"angular",
